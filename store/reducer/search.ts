@@ -11,23 +11,8 @@ export const searchReducer = (state: Search = initialState, action: SearchAction
   switch (action.type) {
     case type.ADD_SEARCH:
       let addSearch: string[] = [...state.search];
-      if (addSearch.includes(action.payload)) {
-        addSearch = addSearch.filter((key) => {
-          return key != action.payload;
-        })
-        if (addSearch.length == 0) {
-          return {
-            loading: true,
-            search: []
-          } 
-        } else {
-          return {
-            loading: false,
-            search: addSearch
-          }
-        }
-      }
-      addSearch.push(action.payload);
+      if (!addSearch.includes(action.payload))
+        addSearch.push(action.payload);
       return {
         loading: false,
         search: addSearch

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Spinner } from 'reactstrap';
 import { DataLoading } from '../interface/job';
 import { useAppSelector } from '../store/hook'
