@@ -12,6 +12,7 @@ const removeSearch = (search: string) => ({
 
 const removeAll = () => ({
   type: REMOVE_ALL,
+  payload: []
 })
 
 export const searchAction = {
