@@ -1,0 +1,5 @@
+export const FETCH_DATA = "FETCH_DATA";
+export const FETCH_DATA_REMOVE = "FETCH_DATA";
+export const FETCH_SUCCESS = "FETCH_SUCCESS";
+export const CHANGE_DATA_ADD = "CHANGE_DATA_ADD";
+export const CHANGE_DATA_REMOVE = "CHANGE_DATA_REMOVE";

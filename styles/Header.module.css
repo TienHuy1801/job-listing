@@ -1,0 +1,8 @@
+.header {
+  background-image: url("/images/bg-header-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: hsl(180, 29%, 50%);
+
+  height: 168px;
+}
