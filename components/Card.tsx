@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "reactstrap";
+import Image from "next/image";
 import { Data } from "../interface/job";
 import { actions } from "../store/action";
 import { useAppDispatch } from "../store/hook";
@@ -15,7 +16,7 @@ export default function Card(cardData: Data) {
     <Container>
       <Row className={style.box}>
         <Col md={1}>
-          <img src={data.logo} alt={data.company} />
+          <Image src={data.logo} width={100} height={100} alt={data.company} />
         </Col>
         <Col md={4}>
           <div className={style["box-company"]}>

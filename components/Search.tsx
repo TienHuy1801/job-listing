@@ -1,8 +1,10 @@
 import React from 'react';
-import { Container, Row } from 'reactstrap';
+import Image from 'next/image';
+import { Container } from 'reactstrap';
 import { actions } from '../store/action';
 import { useAppDispatch, useAppSelector } from '../store/hook';
 import style from '../styles/Search.module.css';
+import remove from "../public/images/icon-remove.svg";
 
 export default function Search() {
   const data = useAppSelector(state => state.search);
@@ -29,7 +31,7 @@ export default function Search() {
                 <div key={id} className={style.item}>
                   <span className={style["item-text"]}>{search}</span>
                   <div onClick={() => removeItem(search)} className={style["item-remove"]}>
-                    <img src="/images/icon-remove.svg" alt="remove" />
+                    <Image src={remove} alt="remove" />
                   </div>
                 </div>
               ); 

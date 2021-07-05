@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Spinner } from 'reactstrap';
 import { DataLoading } from '../interface/job';
 import { useAppSelector } from '../store/hook'
@@ -17,7 +17,11 @@ export default function View() {
       <div style={{backgroundColor: "#f0fafb", paddingTop: "40px", minHeight:"600px"}}>
       {
         data.data.map(cardData => {
-          return <Card key={cardData.id} {...cardData}/>
+          return(
+            <div key={cardData.id}>
+              <Card {...cardData}/>
+            </div>
+          );
         })
       }
       </div>
