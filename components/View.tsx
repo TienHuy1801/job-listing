@@ -5,7 +5,8 @@ import { DataLoading } from '../interface/job';
 import { actions } from '../store/action';
 import { useAppSelector } from '../store/hook'
 import { useAppDispatch } from "../store/hook";
-import style from '../styles/Card.module.css';
+import style from '../styles/View.module.css';
+import Card from './Card';
 
 export default function View() {
   const data: DataLoading = useAppSelector(state => state.job);
@@ -16,7 +17,7 @@ export default function View() {
   if (data.loading) {
     return (
       <div style={{textAlign:"center", paddingTop:"50px"}}>
-        <Spinner color="info"/>
+        <div className={style.loader}></div>
       </div>
     )
   } else {
@@ -26,42 +27,7 @@ export default function View() {
         data.data.map(data => {
           return(
             <div key={data.id}>
-              <Container>
-                <Row className={style.box}>
-                  <Col md={1}>
-                    <Image src={data.logo} width={100} height={100} alt={data.company} />
-                  </Col>
-                  <Col md={4}>
-                    <div className={style["box-company"]}>
-                      <span className={style.company}>{data.company}</span>
-                      <div className={data.new ? style.new : style.hidden}>NEW!</div>
-                      <div className={data.featured ? style.featured : style.hidden}>FEATURED</div>
-                    </div>
-                    <p className={style.position}>{data.position}</p>
-                    <div className={style["box-time"]}>
-                      <span>{data.postedAt}</span> . 
-                      <span> {data.contract}</span> . 
-                      <span> {data.location}</span>
-                    </div>
-                  </Col>
-                  <Col md={7}>
-                    <div className={style["box-search"]}>
-                      <div className={style.search} onClick={() => addSearch(data.role)}>{data.role}</div>
-                      <div className={style.search} onClick={() => addSearch(data.level)}>{data.level}</div>
-                      {
-                        data.languages.map((language: string, id: number) => {
-                          return <div key={id} onClick={() => addSearch(language)} className={style.search}>{language}</div>
-                        })
-                      }
-                      {
-                        data.tools.map((tool: string, id: number) => {
-                          return <div key={id} onClick={() => addSearch(tool)} className={style.search}>{tool}</div>
-                        })
-                      }
-                    </div>
-                  </Col>
-                </Row>
-              </Container>
+              <Card {...data}/>
             </div>
           );
         })
