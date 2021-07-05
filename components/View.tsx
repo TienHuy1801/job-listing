@@ -16,7 +16,7 @@ export default function View() {
   if (data.loading) {
     return (
       <div style={{textAlign:"center", paddingTop:"50px"}}>
-        <Spinner color="info" children=""/>
+        <Spinner color="info"/>
       </div>
     )
   } else {
